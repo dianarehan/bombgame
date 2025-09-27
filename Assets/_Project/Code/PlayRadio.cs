@@ -17,6 +17,10 @@ public class PlayRadio : MonoBehaviour
     [Tooltip("How long the radio should shake when turned on.")]
     [SerializeField] private float vibrationDuration = 0.5f;
 
+    [Header("Object Activation")]
+    [Tooltip("The object to activate when the radio sound ends.")]
+    [SerializeField] private GameObject objectToActivate;
+
     // Private variables
     private AudioSource audioSource;
     private Vector3 originalPosition;
@@ -26,14 +30,10 @@ public class PlayRadio : MonoBehaviour
 
     void Start()
     {
-        // Get the AudioSource component attached to this GameObject
         audioSource = GetComponent<AudioSource>();
-
-        // Store the radio's starting position to reset it after vibration
         originalPosition = transform.position;
     }
 
-    // This function is called by Unity when the GameObject's collider is clicked
     void OnMouseDown()
     {
         // Toggle the radio's state
@@ -121,8 +121,18 @@ public class PlayRadio : MonoBehaviour
         if (isRadioOn)
         {
             audioSource.clip = radioMusicLoop;
-            audioSource.loop = true;
+            audioSource.loop = false;
             audioSource.Play();
+
+            // Wait for the audio to finish playing
+            yield return new WaitForSeconds(radioMusicLoop.length);
+
+            // Activate the object when the sound ends (if it's assigned and radio is still on)
+            if (objectToActivate != null && isRadioOn)
+            {
+                objectToActivate.SetActive(true);
+                Debug.Log("Object activated after radio sound ended.");
+            }
         }
     }
 }
