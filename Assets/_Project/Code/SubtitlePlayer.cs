@@ -1,13 +1,13 @@
 using UnityEngine;
-using TMPro; // Use TextMeshPro for best quality text
+using TMPro;
 using System.Collections;
 using System.Collections.Generic;
 
 // This makes our custom subtitle data visible in the Inspector
 [System.Serializable]
-public struct SubtitleLine
+public class SubtitleLine
 {
-    [TextArea(2, 5)] // Makes the text field bigger in the Inspector
+    [TextArea]
     public string text;
     public float duration;
 }
