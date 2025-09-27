@@ -17,21 +17,12 @@ public class PlayRadio : MonoBehaviour
     [Tooltip("How long the radio should shake when turned on.")]
     [SerializeField] private float vibrationDuration = 0.5f;
 
-    [Header("Visual Effect (Glow)")]
-    [Tooltip("The Renderer of the part of the radio that should glow (e.g., a small light or dial).")]
-    [SerializeField] private Renderer radioLightRenderer;
-
-    [Tooltip("The color the light should glow when the radio is on.")]
-    [SerializeField] private Color emissionColor = new Color(1.0f, 0.8f, 0.4f); // A warm yellow/orange
-
     // Private variables
     private AudioSource audioSource;
     private Vector3 originalPosition;
     private bool isRadioOn = false;
     private Coroutine musicCoroutine;
 
-    // The name of the emission property in Unity's standard shaders
-    private const string EMISSION_PROPERTY = "_EmissionColor";
 
     void Start()
     {
@@ -40,14 +31,6 @@ public class PlayRadio : MonoBehaviour
 
         // Store the radio's starting position to reset it after vibration
         originalPosition = transform.position;
-
-        // Ensure the radio light material can have emission
-        if (radioLightRenderer != null)
-        {
-            radioLightRenderer.material.EnableKeyword("_EMISSION");
-            // Start with the light off
-            radioLightRenderer.material.SetColor(EMISSION_PROPERTY, Color.black);
-        }
     }
 
     // This function is called by Unity when the GameObject's collider is clicked
@@ -80,11 +63,6 @@ public class PlayRadio : MonoBehaviour
         // 2. Start the vibration effect
         StartCoroutine(VibrateRadio());
 
-        // 3. Turn on the glowing light
-        if (radioLightRenderer != null)
-        {
-            radioLightRenderer.material.SetColor(EMISSION_PROPERTY, emissionColor);
-        }
 
         // 4. Start playing the main music loop after a short delay
         if (radioMusicLoop != null)
@@ -106,12 +84,6 @@ public class PlayRadio : MonoBehaviour
 
         // Reset the radio's position in case it was vibrating
         transform.position = originalPosition;
-
-        // Turn off the glowing light
-        if (radioLightRenderer != null)
-        {
-            radioLightRenderer.material.SetColor(EMISSION_PROPERTY, Color.black);
-        }
     }
 
     // Coroutine for the vibration effect

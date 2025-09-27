@@ -124,11 +124,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3925293402046608752, guid: 571c6641f7744224dac64a8df2c54629, type: 3}
   m_PrefabInstance: {fileID: 1423820546}
   m_PrefabAsset: {fileID: 0}
---- !u!23 &87170466 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 965716979239372328, guid: 571c6641f7744224dac64a8df2c54629, type: 3}
-  m_PrefabInstance: {fileID: 1423820546}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &87170468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,11 +137,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   turnOnSound: {fileID: 8300000, guid: f844e2981127ff643acc9b5c62cc60b9, type: 3}
-  radioMusicLoop: {fileID: 8300000, guid: f844e2981127ff643acc9b5c62cc60b9, type: 3}
+  radioMusicLoop: {fileID: 8300000, guid: 0c1837e7240335d4cb44b2222353d51e, type: 3}
   vibrationIntensity: 0.0009
-  vibrationDuration: 10
-  radioLightRenderer: {fileID: 87170466}
-  emissionColor: {r: 1, g: 0.8, b: 0.4, a: 1}
+  vibrationDuration: 27
 --- !u!82 &87170469
 AudioSource:
   m_ObjectHideFlags: 0
