@@ -1039,6 +1039,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MessageCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5720271449814599329, guid: 2c83868433dbd3942a5336007d7b3c45, type: 3}
+      propertyPath: m_fontColor.a
+      value: 0.8352941
+      objectReference: {fileID: 0}
+    - target: {fileID: 5720271449814599329, guid: 2c83868433dbd3942a5336007d7b3c45, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 3573547008
+      objectReference: {fileID: 0}
     - target: {fileID: 8072407945641831215, guid: 2c83868433dbd3942a5336007d7b3c45, type: 3}
       propertyPath: m_Pivot.x
       value: 0
