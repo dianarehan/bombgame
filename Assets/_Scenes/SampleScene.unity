@@ -412,8 +412,8 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.01
-  far clip plane: 52
-  field of view: 40
+  far clip plane: 924.9
+  field of view: 60.000004
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -439,8 +439,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1536064, y: -0.39522558, z: 0.06757305, w: 0.9031255}
-  m_LocalPosition: {x: -0.17173624, y: 1.3273145, z: 0.55497026}
+  m_LocalRotation: {x: 0.16422738, y: -0.4221191, z: 0.078420855, w: 0.88808507}
+  m_LocalPosition: {x: 1.2083255, y: 1.8932402, z: 0.26767325}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1228,6 +1228,155 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!1001 &1251820056
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1157904867277115386, guid: 42d99526486eb1a47aed6c7bf17a496e, type: 3}
+      propertyPath: m_Name
+      value: SubtitlePlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318793812450989636, guid: 42d99526486eb1a47aed6c7bf17a496e, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318793812450989636, guid: 42d99526486eb1a47aed6c7bf17a496e, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318793812450989636, guid: 42d99526486eb1a47aed6c7bf17a496e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318793812450989636, guid: 42d99526486eb1a47aed6c7bf17a496e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318793812450989636, guid: 42d99526486eb1a47aed6c7bf17a496e, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318793812450989636, guid: 42d99526486eb1a47aed6c7bf17a496e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318793812450989636, guid: 42d99526486eb1a47aed6c7bf17a496e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318793812450989636, guid: 42d99526486eb1a47aed6c7bf17a496e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318793812450989636, guid: 42d99526486eb1a47aed6c7bf17a496e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318793812450989636, guid: 42d99526486eb1a47aed6c7bf17a496e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318793812450989636, guid: 42d99526486eb1a47aed6c7bf17a496e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318793812450989636, guid: 42d99526486eb1a47aed6c7bf17a496e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318793812450989636, guid: 42d99526486eb1a47aed6c7bf17a496e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318793812450989636, guid: 42d99526486eb1a47aed6c7bf17a496e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318793812450989636, guid: 42d99526486eb1a47aed6c7bf17a496e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318793812450989636, guid: 42d99526486eb1a47aed6c7bf17a496e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318793812450989636, guid: 42d99526486eb1a47aed6c7bf17a496e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318793812450989636, guid: 42d99526486eb1a47aed6c7bf17a496e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318793812450989636, guid: 42d99526486eb1a47aed6c7bf17a496e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318793812450989636, guid: 42d99526486eb1a47aed6c7bf17a496e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6090921643308314988, guid: 42d99526486eb1a47aed6c7bf17a496e, type: 3}
+      propertyPath: lines.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6090921643308314988, guid: 42d99526486eb1a47aed6c7bf17a496e, type: 3}
+      propertyPath: lines.Array.data[0].text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6090921643308314988, guid: 42d99526486eb1a47aed6c7bf17a496e, type: 3}
+      propertyPath: lines.Array.data[1].text
+      value: Two decades of loyalty. Of cleaning his messes,
+      objectReference: {fileID: 0}
+    - target: {fileID: 6090921643308314988, guid: 42d99526486eb1a47aed6c7bf17a496e, type: 3}
+      propertyPath: lines.Array.data[2].text
+      value: burying his mistakes... and he gives it all to you.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6090921643308314988, guid: 42d99526486eb1a47aed6c7bf17a496e, type: 3}
+      propertyPath: lines.Array.data[3].text
+      value: An upstart.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6090921643308314988, guid: 42d99526486eb1a47aed6c7bf17a496e, type: 3}
+      propertyPath: lines.Array.data[4].text
+      value: You haven't earned the secrets. You don't deserve the power.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6090921643308314988, guid: 42d99526486eb1a47aed6c7bf17a496e, type: 3}
+      propertyPath: lines.Array.data[5].text
+      value: 'So, you will inherit what you truly deserve: nothing.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6090921643308314988, guid: 42d99526486eb1a47aed6c7bf17a496e, type: 3}
+      propertyPath: lines.Array.data[0].duration
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6090921643308314988, guid: 42d99526486eb1a47aed6c7bf17a496e, type: 3}
+      propertyPath: lines.Array.data[1].duration
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6090921643308314988, guid: 42d99526486eb1a47aed6c7bf17a496e, type: 3}
+      propertyPath: lines.Array.data[2].duration
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6090921643308314988, guid: 42d99526486eb1a47aed6c7bf17a496e, type: 3}
+      propertyPath: lines.Array.data[3].duration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6090921643308314988, guid: 42d99526486eb1a47aed6c7bf17a496e, type: 3}
+      propertyPath: lines.Array.data[4].duration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6090921643308314988, guid: 42d99526486eb1a47aed6c7bf17a496e, type: 3}
+      propertyPath: lines.Array.data[5].duration
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 42d99526486eb1a47aed6c7bf17a496e, type: 3}
 --- !u!1001 &1423820546
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1375,3 +1524,4 @@ SceneRoots:
   - {fileID: 1751833721}
   - {fileID: 550451092}
   - {fileID: 213982813}
+  - {fileID: 1251820056}
