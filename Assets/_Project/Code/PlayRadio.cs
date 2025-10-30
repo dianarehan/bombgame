@@ -20,7 +20,7 @@ public class PlayRadio : MonoBehaviour
     [Header("Object Activation")]
     [Tooltip("The object to activate when the radio sound ends.")]
     [SerializeField] private GameObject objectToActivate;
-
+    [SerializeField] private SubtitlePlayer subtitlePlayer;
     // Private variables
     private AudioSource audioSource;
     private Vector3 originalPosition;
@@ -44,6 +44,7 @@ public class PlayRadio : MonoBehaviour
         else
         {
             TurnOnRadio();
+            subtitlePlayer.StartSubtitles();
         }
     }
 
@@ -132,7 +133,24 @@ public class PlayRadio : MonoBehaviour
             {
                 objectToActivate.SetActive(true);
                 Debug.Log("Object activated after radio sound ended.");
+                //hide this object after any mouse click
+                HideObjectOnClick();
             }
         }
+    }
+
+    private void HideObjectOnClick()
+    {
+        StartCoroutine(WaitForClickAndHide());
+    }
+
+    private IEnumerator WaitForClickAndHide()
+    {
+        while (!Input.GetMouseButtonDown(0) && !Input.GetMouseButtonDown(1) && !Input.GetMouseButtonDown(2))
+        {
+            yield return null;
+        }
+
+        objectToActivate.SetActive(false);
     }
 }

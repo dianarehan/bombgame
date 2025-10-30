@@ -22,16 +22,10 @@ public class SubtitlePlayer : MonoBehaviour
 
     private Coroutine _subtitleCoroutine;
 
-    private void OnEnable()
+    
+    public void StartSubtitles()
     {
-        // Always check for null references before starting
-        if (subtitleTextUI == null)
-        {
-            Debug.LogError("Subtitle Text UI is not assigned!");
-            return;
-        }
-
-        // Start the main routine
+        // Start the coroutine to play subtitles
         _subtitleCoroutine = StartCoroutine(PlaySubtitles());
     }
 
