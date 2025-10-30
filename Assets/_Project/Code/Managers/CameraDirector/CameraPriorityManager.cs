@@ -4,13 +4,10 @@ using System.Collections.Generic;
 
 public class CameraPriorityManager : MonoBehaviour
 {
-    [Header("Camera Control")]
-    [Tooltip("Add all your virtual cameras to this list.")]
-    public List<CinemachineCamera> allCameras;
+    [SerializeField] private List<CinemachineCamera> allCameras;
 
-    [Header("Priority Settings")]
-    public int activePriority = 100;
-    public int inactivePriority = 10;
+    [SerializeField] private int activePriority = 100;
+    [SerializeField] private int inactivePriority = 10;
 
     public static CameraPriorityManager Instance { get; private set; }
 
@@ -25,10 +22,16 @@ public class CameraPriorityManager : MonoBehaviour
             Instance = this;
         }
     }
-
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ActivateCamera(allCameras[0]);
+        }
+    }
+    
     void Start()
     {
-        // Make sure we have cameras
         if (allCameras == null || allCameras.Count == 0)
         {
             Debug.LogError("No cameras assigned to the CameraPriorityManager!");
@@ -41,9 +44,6 @@ public class CameraPriorityManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// This is the main function. It activates one camera and deactivates all others.
-    /// </summary>
     public void ActivateCamera(CinemachineCamera cameraToActivate)
     {
         if (cameraToActivate == null || !allCameras.Contains(cameraToActivate))
@@ -52,7 +52,6 @@ public class CameraPriorityManager : MonoBehaviour
             return;
         }
 
-        // Loop through all cameras and set priorities
         foreach (var cam in allCameras)
         {
             cam.Priority = (cam == cameraToActivate) ? activePriority : inactivePriority;
