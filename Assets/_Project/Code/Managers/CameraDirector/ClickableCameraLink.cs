@@ -1,6 +1,5 @@
 using UnityEngine;
 using Unity.Cinemachine;
-using System.Collections.Generic;
 
 // This object MUST have a Collider component to be clicked
 [RequireComponent(typeof(Collider))]
