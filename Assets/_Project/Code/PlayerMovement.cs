@@ -6,8 +6,13 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
-    public float rotationSpeed = 720f; 
+    public float rotationSpeed = 5f; 
     public float gravity = -9.81f;
+[Header("Movement Settings")]
+    public float smoothTime = 0.1f; // How long it takes to turn (0.1 is snappy, 0.3 is slow)
+
+    // ADD THIS PRIVATE VARIABLE
+    private float rotationVelocity;
 
     [Header("Interaction Settings")]
     public bool canMove = true; 
@@ -24,31 +29,48 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        // 1. Gravity Logic
         if (controller.isGrounded && velocity.y < 0)
         {
             velocity.y = -2f; 
         }
 
-        float horizontal = Input.GetAxis("Vertical"); 
-        float vertical = Input.GetAxis("Horizontal");   
+        // 2. Get Standard Inputs (Don't swap them!)
+        float horizontal = Input.GetAxis("Horizontal"); // A & D
+        float vertical = Input.GetAxis("Vertical");     // W & S
         
-        Vector3 direction = new Vector3(horizontal, 0f, -vertical).normalized;
+        // 3. Calculate Direction Relative to Camera
+        Transform camTransform = Camera.main.transform;
+        
+        // Get camera forward and right vectors, but flatten them (ignore Y)
+        Vector3 camForward = camTransform.forward;
+        Vector3 camRight = camTransform.right;
+        camForward.y = 0;
+        camRight.y = 0;
+        camForward.Normalize();
+        camRight.Normalize();
+
+        // Create the direction based on camera view
+        Vector3 direction = (camForward * vertical + camRight * horizontal).normalized;
 
         if (direction.magnitude >= 0.1f && canMove)
-        {
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref rotationSpeed, 0.1f);
-            transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
+    {
+        float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+        
+        // CORRECTED LINE: Use 'rotationVelocity' (the private var), NOT 'rotationSpeed' or 'smoothTime'
+        float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref rotationVelocity, smoothTime);
+        
+        transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
-            controller.Move(direction * moveSpeed * Time.deltaTime);
-
-            animator.SetBool("IsWalking", true);
-        }
+        controller.Move(direction * moveSpeed * Time.deltaTime);
+        animator.SetBool("IsWalking", true);
+    }
         else
         {
             animator.SetBool("IsWalking", false);
         }
 
+        // 4. Gravity Application
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
