@@ -88,12 +88,10 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("IsSitting", false);
     }
 
-    public void PlayPushAnimation()
+    public void PlayPutDownAnimation()
     {
         canMove = false; 
-        animator.SetTrigger("PushButton");
-        // You'll need to set canMove = true after the animation finishes
-        // (You can use an Animation Event for that, like we did with the Lock)
+        animator.SetTrigger("PutDown");
     }
 
     public void PlayTakeAnimation()
