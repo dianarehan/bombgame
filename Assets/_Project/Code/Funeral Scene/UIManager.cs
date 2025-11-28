@@ -10,7 +10,7 @@ public class GameUIManager : MonoBehaviour
     public TextMeshProUGUI messageText;
     
     [Tooltip("How long the message stays on screen.")]
-    public float messageDuration = 3f;
+    public float messageDuration = 1f;
 
     void Awake()
     {

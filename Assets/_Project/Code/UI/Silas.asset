@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 751c66f2137f3f747b4be2bf2d5a4a06, type: 3}
+  m_Name: Silas
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueData
+  lines:
+  - characterName: Silas Thorne
+    sentence: "Mr. Rossi. I\u2026 I still can\u2019t believe he\u2019s gone. My deepest
+      condolences."
+    duration: 10
+  - characterName: Silas Thorne
+    sentence: The Syndicate is in chaos, naturally. Everyone is looking for a steady
+      hand. Someone to... stop the bleeding.
+    duration: 12
+  - characterName: Silas Thorne
+    sentence: "We\u2019ve prepared the office. Kept it exactly as the Don left it.
+      Not a single paper moved."
+    duration: 10
+  - characterName: Silas Thorne
+    sentence: "Go on inside. Take the chair. It\u2019s time to see if you can handle
+      the pressure of the Don\u2019s legacy. I\u2019ll be right out here... guarding
+      your back."
+    duration: 10
