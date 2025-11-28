@@ -30,7 +30,7 @@ public class FlowerPickup : MonoBehaviour
             return;
         }
 
-        player.PlayTakeAnimation();
+        player.PlayTakeAnimation(this.transform.position);
 
         Invoke("PickUpSequence", animationDelay);
     }

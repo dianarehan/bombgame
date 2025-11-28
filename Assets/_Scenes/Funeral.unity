@@ -890,6 +890,7 @@ MonoBehaviour:
   rotationSpeed: 3
   gravity: -9.81
   smoothTime: 0.1
+  rotationOffset: -45
   canMove: 1
 --- !u!4 &288438360 stripped
 Transform:
@@ -1597,7 +1598,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CoffinController
   placedFlowerModel: {fileID: 1445337361}
   maxDistance: 3
-  animationDelay: 0.5
+  animationDelay: 1
 --- !u!1 &1287016288
 GameObject:
   m_ObjectHideFlags: 0
@@ -2096,8 +2097,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44a5064b0e63f0644a01c5c41386f476, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlowerPickup
-  maxDistance: 3
-  animationDelay: 0.5
+  maxDistance: 2
+  animationDelay: 1.3
   coffinController: {fileID: 1107312836}
 --- !u!1 &1851142904
 GameObject:

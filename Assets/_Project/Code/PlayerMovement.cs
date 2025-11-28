@@ -8,10 +8,11 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5f;
     public float rotationSpeed = 5f; 
     public float gravity = -9.81f;
-[Header("Movement Settings")]
-    public float smoothTime = 0.1f; // How long it takes to turn (0.1 is snappy, 0.3 is slow)
+    [Header("Movement Settings")]
+    public float smoothTime = 0.1f;
+    [Tooltip("Tweak this if the player doesn't face the object perfectly (e.g. try 20 or -20).")]
+    public float rotationOffset = 0f;
 
-    // ADD THIS PRIVATE VARIABLE
     private float rotationVelocity;
 
     [Header("Interaction Settings")]
@@ -94,11 +95,36 @@ public class PlayerMovement : MonoBehaviour
         animator.SetTrigger("PutDown");
     }
 
-    public void PlayTakeAnimation()
+    public void PlayTakeAnimation(Vector3 lookAtTarget)
     {
         canMove = false;
+        StartCoroutine(RotateAndAnimate(lookAtTarget));
+    }
+
+    private System.Collections.IEnumerator RotateAndAnimate(Vector3 target)
+    {
+        Vector3 direction = (target - transform.position).normalized;
+        direction.y = 0; 
+
+        Quaternion targetLookRotation = Quaternion.LookRotation(direction);
+
+        Quaternion correctedRotation = targetLookRotation * Quaternion.Euler(0, rotationOffset, 0);
+        
+        Quaternion startRotation = transform.rotation;
+        float time = 0;
+        float duration = 0.2f;
+
+        while (time < duration)
+        {
+            transform.rotation = Quaternion.Slerp(startRotation, correctedRotation, time / duration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.rotation = correctedRotation;
+
         animator.SetTrigger("TakeItem");
-        Invoke("EnableMovement", 1.5f); // Simple timer to re-enable movement
+        Invoke("EnableMovement", 1.5f);
     }
 
     private void EnableMovement()
