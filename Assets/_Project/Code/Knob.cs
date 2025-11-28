@@ -12,7 +12,7 @@ public class Knob : MonoBehaviour
     [Tooltip("Check ONE box to choose which way it spins.")]
     public bool rotateAroundX = false;
     public bool rotateAroundY = false;
-    public bool rotateAroundZ = true; // Default to Z (Forward)
+    public bool rotateAroundZ = true;
 
     [Tooltip("Angle to turn per click (e.g. 90 or -90)")]
     public float angleIncrement = 90f;
@@ -27,7 +27,6 @@ public class Knob : MonoBehaviour
     void Start()
     {
         player = FindObjectOfType<PlayerMovement>();
-        // Set the starting target to whatever we are now
         targetRotation = transform.localRotation;
     }
 
@@ -35,7 +34,6 @@ public class Knob : MonoBehaviour
     {
         if (isRotating || player == null) return;
 
-        // 1. Distance Check
         float dist = Vector3.Distance(player.transform.position, transform.position);
         if (dist > maxDistance)
         {
@@ -49,18 +47,13 @@ public class Knob : MonoBehaviour
             return;
         }
 
-        // 2. Play Player Animation (Look at the knob)
 
-
-        // 3. Calculate New Rotation based on selected Axis
         float x = rotateAroundX ? angleIncrement : 0;
         float y = rotateAroundY ? angleIncrement : 0;
         float z = rotateAroundZ ? angleIncrement : 0;
 
-        // Multiply the CURRENT target by the NEW offset (this stacks the rotation)
         targetRotation = targetRotation * Quaternion.Euler(x, y, z);
 
-        // 4. Start Coroutine
         StartCoroutine(RotateSmoothly());
     }
 
@@ -74,14 +67,13 @@ public class Knob : MonoBehaviour
         while (time < 1f)
         {
             time += Time.deltaTime * rotationSpeed;
-            // Slerp rotates from Start to Target using the pivot point automatically
             transform.localRotation = Quaternion.Slerp(startRotation, targetRotation, time);
             yield return null;
         }
-        // Snap to exact finish
         transform.localRotation = targetRotation;
         isRotating = false;
         
         Debug.Log("Knob Rotated!");
+        SceneTransitionManager.Instance.LoadScene("Game");
     }
 }

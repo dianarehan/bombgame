@@ -30,20 +30,16 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        // 1. Gravity Logic
         if (controller.isGrounded && velocity.y < 0)
         {
             velocity.y = -2f; 
         }
 
-        // 2. Get Standard Inputs (Don't swap them!)
-        float horizontal = Input.GetAxis("Horizontal"); // A & D
-        float vertical = Input.GetAxis("Vertical");     // W & S
+        float horizontal = Input.GetAxis("Horizontal"); 
+        float vertical = Input.GetAxis("Vertical");     
         
-        // 3. Calculate Direction Relative to Camera
         Transform camTransform = Camera.main.transform;
         
-        // Get camera forward and right vectors, but flatten them (ignore Y)
         Vector3 camForward = camTransform.forward;
         Vector3 camRight = camTransform.right;
         camForward.y = 0;
@@ -51,14 +47,12 @@ public class PlayerMovement : MonoBehaviour
         camForward.Normalize();
         camRight.Normalize();
 
-        // Create the direction based on camera view
         Vector3 direction = (camForward * vertical + camRight * horizontal).normalized;
 
         if (direction.magnitude >= 0.1f && canMove)
     {
         float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
         
-        // CORRECTED LINE: Use 'rotationVelocity' (the private var), NOT 'rotationSpeed' or 'smoothTime'
         float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref rotationVelocity, smoothTime);
         
         transform.rotation = Quaternion.Euler(0f, angle, 0f);
@@ -71,7 +65,6 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("IsWalking", false);
         }
 
-        // 4. Gravity Application
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }

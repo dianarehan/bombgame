@@ -39,7 +39,6 @@ public class EnemyDialogueController : MonoBehaviour
 
     private IEnumerator PlayDialogueRoutine()
     {
-        // 1. Start the ONE Audio File
         if (fullConversationAudio != null)
         {
             audioSource.clip = fullConversationAudio;

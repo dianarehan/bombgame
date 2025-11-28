@@ -59,5 +59,11 @@ public class CoffinController : MonoBehaviour
         placedFlowerModel.SetActive(true);
         isFlowerPlaced = true;
         GameUIManager.Instance.ShowMessage("Flowers placed successfully.");
+        Invoke("LoadNextLevel", 2.0f);
+    }
+
+    private void LoadNextLevel()
+    {
+         SceneTransitionManager.Instance.LoadScene("Hallway");
     }
 }
